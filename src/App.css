@@ -1,0 +1,660 @@
+/* Define the root variables for the colors used in the app */
+:root {
+  --primary-color: #0074D9;
+  --secondary-color: #FF4136;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --button-bg: #0074D9;
+  --button-text: #fff;
+  --loader-color-1: #0074D9;
+  --loader-color-2: #FF4136;
+   --size: 60px;
+  --color: #26d0ce;
+  --bgcolor: #010c15;
+}
+
+/* Define the dark theme variables */
+.App.dark {
+  --primary-color: #001f3f;
+  --secondary-color: #39cccc;
+  --background-color: #1a1a1a;
+  --text-color: #fff;
+  --button-bg: #39cccc;
+  --button-text: #1a1a1a;
+  --loader-color-1: #39cccc;
+  --loader-color-2: #001f3f;
+}
+
+/* Set the box-sizing property for all elements to border-box */
+* {
+  box-sizing: border-box;
+}
+
+/* Set the background color and text color for the html and body elements */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f3f3;
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+/* Set the display property for the App element to flex and define the flex direction and gap */
+.App {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0;
+}
+
+/* Set the flex property for the main-content element and define the padding, display,
+ flex direction, align items, justify content, overflow-y, and margin */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  margin: 0;
+}
+
+/* Set the width, padding, background color, color, display, flex direction, align items, and justify content for the sidebar element */
+.sidebar {
+  width: 400px;
+  padding: 20px;
+  background: var(--background-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+/* Set the margin, padding, font-size, cursor, background color, color, border, and border radius for the record-buttons button elements */
+.record-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+/* Added CSS for the new recording and case analysis buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px;
+  height:55px;
+}
+
+
+/* Set the background color for the record-buttons button elements on hover */
+.record-buttons button:hover {
+  background-color: rgb(245, 10, 225);
+}
+ button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+
+/* Set the background color for the button elements on hover */
+button:hover {
+  background-color: rgb(245, 10, 225);
+}
+
+/* Set the background color, opacity, and cursor for the button elements when they are disabled */
+button:disabled {
+  background: var(--button-bg);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Set the width, height, and margin for the sound-wave element */
+.sound-wave {
+  width: 100%;
+  height: 100px;
+  margin-top: 35px;
+  margin-bottom: 8px;
+}
+
+/* Set the width, max-width, text-align, and margin-top for the fields-section element */
+.fields-section {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* Set the color for the h2 elements inside the fields-section element */
+.fields-section h2 {
+  color: var(--primary-color);
+}
+
+/* Set the margin-bottom for the div elements inside the fields-section element */
+.fields-section div {
+  margin-bottom: 10px;
+}
+
+/* Set the font-size for the h1 elements */
+h1 {
+  font-size: 20px;
+}
+
+/* Set the color for the h1 elements on hover */
+h1:hover {
+  color: rgb(245, 10, 225);
+}
+
+/* Set the display, margin-bottom, and font-weight for the label elements */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500px;
+}
+
+h2{
+  margin: 5px;
+  font-size: 20px;
+}
+/* Set the width, padding, border, border-radius, and font-size for the input and textarea elements */
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Set the resize property and height for the textarea elements */
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Set the display, justify-content, align-items, and margin-top for the loader-container element */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+/* Set the height for the stack element inside the loader-container element */
+.loader-container .stack {
+  height: 40vmin;
+}
+
+/* Set the display and grid-template-areas for the stack element */
+.stack {
+  display: grid;
+  grid-template-areas: "stack";
+}
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 300px;
+    padding: 15px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  button {
+    margin: 60px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  button {
+    margin: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  button {
+    margin: 30px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .fields-section {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .sound-wave {
+    height: 80px;
+  }
+
+  button {
+    margin: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .record-buttons button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .fields-section h2 {
+    font-size: 18px;
+  }
+
+ 
+}
+
+/* Added CSS for the case analysis button */
+.case-analysis-button {
+ margin-top: 10px;
+
+}
+
+/* Added CSS for the medical transcription button */
+.medical-transcription-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medical-transcription-button:hover {
+  background-color: #3e8e41;
+}
+
+.medical-transcription-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.copy-icon-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.copy-icon {
+  color: #0074D9;
+  transition: color 0.3s;
+  font-size: 16px;
+  right: 25px;
+}
+
+.copy-icon-container:hover .copy-icon {
+  color: rgb(243, 9, 204);
+}
+
+.copy-label {
+  color: blue;
+  transition: color 0.3s;
+  opacity: 0;
+  margin: 8px;
+  font-size: 14px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.copy-icon-container:hover .copy-label {
+  opacity: 1;
+  color:rgb(243, 9, 204);
+}
+
+.textarea-container {
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.wrapper, .wording {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  height: 50vh;
+  flex-direction: column;
+}
+.circle {
+  background-color: #000;
+	border-radius: 50%;
+	margin: 2px 2px -6px;
+	height: 5px;
+	width: 5px;
+}
+.wording {
+  padding-top: 15px;
+}
+.letter {
+  font-size: 18px;
+  animation: jump 1s ease-in-out infinite;
+}
+.letter:nth-of-type(2) { animation-delay: 0.1s; }
+.letter:nth-of-type(3) { animation-delay: 0.2s; }
+.letter:nth-of-type(4) { animation-delay: 0.3s; }
+.letter:nth-of-type(5) { animation-delay: 0.4s; }
+.letter:nth-of-type(6) { animation-delay: 0.5s; }
+.letter:nth-of-type(7) { animation-delay: 0.6s; }
+.letter:nth-of-type(8) { animation-delay: 0.7s; }
+.letter:nth-of-type(9) { animation-delay: 0.8s; }
+
+.loader {
+  width: 35px;
+  height: 80px;
+  position: relative;
+}
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px 5px;
+  border-bottom: 4px solid #A7C7CB;
+  background: 
+    linear-gradient(#FCA43C 0 0) bottom no-repeat content-box, 
+    #DBE1E3;
+  mix-blend-mode: darken;
+  animation: sip 2.5s infinite linear;
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: -18px calc(50% - 2px) 8px;
+  background: #eb6b3e;   
+  transform-origin: bottom;
+  transform: rotate(8deg);
+}
+@keyframes sip {
+ 0%   { background-size: 100% 100%; }
+ 100% { background-size: 100% 5%; }
+}
+
+@keyframes jump {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-10px); }
+}
+.case-analysis-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.case-analysis-content h2 {
+  color: #0066cc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.case-analysis-content h2 button {
+  margin-left: auto;
+}
+
+.case-analysis-content pre {
+  background:white;
+  padding: 15px;
+  border: 1px solid #b3d4fc;
+  border-radius: 5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.case-analysis-content {
+  background: #eef0f3;
+  padding: 15px;
+  border: 1px solid #b3d4fc;
+  border-radius: 5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+
+.analysis-result {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.analysis-result strong {
+  font-weight: bold;
+}
+.analysis-result-container {
+  position: relative;
+}
+
+
+.copy-label {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.copy-icon {
+  font-size: 16px;
+  color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light dark;
+  --color-light-background: hsl(0, 0%, 90%);
+  --color-light-text: hsl(0, 0%, 20%);
+  --color-dark-background: hsl(0, 0%, 20%);
+  --color-dark-text: hsl(0, 0%, 90%);
+  --color-brand: hsl(120, 100%, 27%);
+  --font-mobile-family: "Roboto", sans-serif;
+  --font-desktop-family: "Poppins", sans-serif;
+}
+
+.main_container {
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden; /* Hide horizontal scroll bar */
+  overflow-y: hidden;
+}
+
+
+.loader {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50px;
+  height: 80px;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+  position: relative;
+  background: linear-gradient(var(--color-brand) 30px, transparent 0) no-repeat;
+  background-size: 2px 40px;
+  background-position: 50% 0px;
+  animation: spinx 5s linear infinite;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  width: 40px;
+  left: 50%;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  transform: translatex(-50%);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  animation: lqt 5s linear infinite;
+}
+
+.loader:after {
+  top: auto;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  animation: lqb 5s linear infinite;
+}
+
+@keyframes lqt {
+  0%,
+  100% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% 0px;
+  }
+
+  50% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% 40px;
+  }
+
+  50.1% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0% -40px;
+  }
+}
+
+@keyframes lqb {
+  0% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0 40px;
+  }
+
+  100% {
+    background-image: linear-gradient(var(--color-brand) 40px, transparent 0);
+    background-position: 0 -40px;
+  }
+}
+
+@keyframes spinx {
+  0%,
+  49% {
+    transform: rotate(0deg);
+    background-position: 50% 36px;
+  }
+
+  51%,
+  98% {
+    transform: rotate(180deg);
+    background-position: 50% 4px;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background-position: 50% 36px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 1.1rem;
+   
+  }
+}
+
+@media screen and (min-width: 801px) {
+  html {
+    font-size: 1.1rem;
+  
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: var(--color-light-background);
+    color: var(--color-light-text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--color-dark-background);
+    color: var(--color-dark-text);
+  }
+}
