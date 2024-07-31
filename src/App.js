@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ReactMic } from "react-mic";
 import Loader from "./Loader";
-import "./App.css";
+import "./App.css"; // or './App.scss' if using SCSS
 import { Link } from "react-router-dom";
+import Orb from "./Orb";
+import Typing from "./Typing";
 
 function App({ fields, setFields }) {
   const [record, setRecord] = useState(false);
@@ -83,7 +85,6 @@ function App({ fields, setFields }) {
     navigator.clipboard.writeText(text).then(
       function() {
         console.log('Copying to clipboard was successful!');
-        // Show a message to the user
         alert('Copied to clipboard!');
       },
       function(err) {
@@ -94,6 +95,12 @@ function App({ fields, setFields }) {
 
   return (
     <div className={`App ${theme}`}>
+      <div className="title-section">
+        <div className="content">
+          <h2>MEDICAL TRANSCRIPTION</h2>
+          <h2>MEDICAL TRANSCRIPTION</h2>
+        </div>
+      </div>
       <div className="sidebar">
         <h1>Medical Voice Transcription</h1>
         <div className="theme-toggle">
@@ -129,10 +136,15 @@ function App({ fields, setFields }) {
             <Loader />
           </div>
         )}
+          {loading && (
+          <div className="orb-container">
+            <Orb />
+          </div>
+        )}
+        <Typing/>
       </div>
       <div className="main-content">
         <div className="fields-section">
-          <h2>Extracted Fields:</h2>
           <div className="field-container">
             <label htmlFor="personalHistory">Personal History:</label>
             <div className="textarea-container">
@@ -233,6 +245,7 @@ function App({ fields, setFields }) {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
