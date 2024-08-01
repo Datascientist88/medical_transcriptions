@@ -22,8 +22,6 @@ $orb-size: 200px;
 $time: 14s;
 $total-particles: 300;
 
-
-
 // Wrap class
 .wrap {
   animation: rotate $time infinite linear;
@@ -46,7 +44,7 @@ $total-particles: 300;
 @for $i from 1 through $total-particles {
   $z: (random(360) * 1deg);
   $y: (random(360) * 1deg);
-  $hue: (((40 / $total-particles) * $i) + 180);
+  $hue: (((math.div(40, $total-particles)) * $i) + 180);
 
   .particle:nth-child(#{$i}) {
     animation: orbit#{$i} $time infinite;

@@ -3,7 +3,7 @@
   --primary-color: #0074D9;
   --primary-color2: #000000;
   --secondary-color: #FF4136;
-  --background-color: #f0f0f0;
+  --background-color: #f0ebeb;
   --text-color: #333;
   --button-bg: #0074D9;
   --button-text: #fff;
@@ -13,21 +13,19 @@
   --color: #26d0ce;
   --bgcolor: #010c15;
 }
-
 /* Define the dark theme variables */
 .App.dark {
   --primary-color: #39cccc;
   --primary-color2: #39cccc;
   --secondary-color: #39cccc;
-  --background-color: #001;
-  --background-color2: #050505;
+  --background-color: #050505;
+  --background-color2: #001;
   --text-color: #fff;
   --button-bg: #39cccc;
   --button-text: #1a1a1a;
   --loader-color-1: #39cccc;
   --loader-color-2: #001f3f;
 }
-
 /* Set the box-sizing property for all elements to border-box */
 * {
   box-sizing: border-box;
@@ -38,7 +36,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #f8f3f3;
+  background:var(--background-color);
   color: var(--text-color);
   overflow-x: hidden;
   font-family: Arial, sans-serif;
@@ -62,11 +60,9 @@ flex direction, align items, justify content, overflow-y, and margin */
   align-items: center;
   justify-content: flex-start;
   overflow-y: auto;
-  margin: 0;
+  margin: 18px;
 }
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-
 /* Title Section */
 .title-section {
   width: 100%;
@@ -99,10 +95,10 @@ flex direction, align items, justify content, overflow-y, and margin */
 
 .content h2 {
   color: #fff;
-  font-size: 1.6em;
+  font-size: 2em;
   position: absolute;
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 60px;
   transform: translate(-50%, -50%);
  
 }
@@ -132,7 +128,6 @@ flex direction, align items, justify content, overflow-y, and margin */
       0% 100%
     );
   }
-
   50% {
     clip-path: polygon(
       0% 60%,
@@ -161,19 +156,87 @@ flex direction, align items, justify content, overflow-y, and margin */
   margin: 0;
   
 }
+/* General button styles */
+button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: color 0.4s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 5px 0 var(--primary-color), 0 10px 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Set the margin, padding, font-size, cursor, background color, color, border, and border radius for the record-buttons button elements */
+/* Liquid effect for buttons */
+button::before,
+button::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -120%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: transform 0.7s;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+button::before {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+button:hover::before,
+button:hover::after {
+  transform: translateX(0) translateY(0);
+}
+
+/* Hover effect for buttons */
+button:hover {
+  color: #000;
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Press effect for buttons */
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 2px 0 #388E3C, 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled state for buttons */
+button:disabled {
+  background: var(--button-bg);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Record buttons container */
 .record-buttons button {
   margin: 0 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 5px;
 }
-/* Added CSS for the new recording and case analysis buttons */
+
+/* Record buttons hover effect */
+.record-buttons button:hover {
+  color: #000;
+  background-color: rgb(245, 10, 225);
+  box-shadow: 0 5px 0  rgb(245, 10, 225), 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons container */
 .buttons-container {
   display: flex;
   flex-direction: row;
@@ -181,46 +244,19 @@ flex direction, align items, justify content, overflow-y, and margin */
   justify-content: space-around;
   width: 100%;
   margin: 10px;
-  height:55px;
+  height: 55px;
 }
-
-
-/* Set the background color for the record-buttons button elements on hover */
-.record-buttons button:hover {
-  background-color: rgb(245, 10, 225);
-}
- button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-
-
-/* Set the background color for the button elements on hover */
-button:hover {
-  background-color: rgb(245, 10, 225);
-}
+/* Styling the buttons ----*/
+/* Orb container positioning */
 .orb-container {
   position: absolute;
   top: 0;
   margin-top: 150px;
   right: 0;
   right: 25%;
-  width: 270px; /* Adjust as needed */
-  height: 200px; /* Adjust as needed */
-  pointer-events: none; /* Make sure the orb doesn't interfere with user interactions */
-}
-/* Set the background color, opacity, and cursor for the button elements when they are disabled */
-button:disabled {
-  background: var(--button-bg);
-  opacity: 0.5;
-  cursor: not-allowed;
+  width: 270px;
+  height: 200px;
+  pointer-events: none;
 }
 
 /* Set the width, height, and margin for the sound-wave element */
@@ -300,8 +336,6 @@ textarea {
   display: grid;
   grid-template-areas: "stack";
 }
-
-
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {

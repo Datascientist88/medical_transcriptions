@@ -4,10 +4,11 @@ import './App.css'; // Ensure App.css is imported
 const Typing = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const sentences = [
-    'Leveraging Artificial Intelligence',
-    'Achieving More accurate Diagnosis',
-    'Seeking AI second opinion',
-    'Pioneering State of the Art Technology',
+    'Leveraging Artificial Intelligence ⌨️',
+    'Achieving more accurate Diagnosis 🩺',
+    'Making Difference to Patients lives 🚑',
+    'Seeking AI second opinion 🤖',
+    'Pioneering in patient Service 👨‍💻',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
